@@ -27,7 +27,7 @@ import com.libing.bms.service.SeckillService;
 
 /**
  * <P>
- * Description:
+ * Description:秒杀业务实现类
  * </p>
  * @author libing
  * @version 1.0
