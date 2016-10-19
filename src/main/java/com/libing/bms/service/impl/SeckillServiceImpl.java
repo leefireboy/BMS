@@ -3,16 +3,6 @@
  */
 package com.libing.bms.service.impl;
 
-import java.util.Date;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.DigestUtils;
-
 import com.libing.bms.dao.SeckillDAO;
 import com.libing.bms.dao.SuccessKilledDAO;
 import com.libing.bms.dto.Exposer;
@@ -24,6 +14,15 @@ import com.libing.bms.exception.RepeatKillException;
 import com.libing.bms.exception.SeckillCloseException;
 import com.libing.bms.exception.SeckillException;
 import com.libing.bms.service.SeckillService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * <P>
@@ -47,17 +46,14 @@ public class SeckillServiceImpl implements SeckillService {
     // MD5 盐值字符串，用于混淆 MD5
     private final String slat = "lkfdajd;facakldfja;dfkj12ej31'`1&~)(~`-";
 
-    @Override
     public List<Seckill> getSeckillList() {
         return seckillDAO.queryAll(0, 4);
     }
 
-    @Override
     public Seckill getById(long seckillId) {
         return seckillDAO.queryById(seckillId);
     }
 
-    @Override
     public Exposer exportSeckillUrl(long seckillId) {
         Seckill seckill = seckillDAO.queryById(seckillId);
         if (seckill == null) {
@@ -83,7 +79,6 @@ public class SeckillServiceImpl implements SeckillService {
         return md5;
     }
 
-    @Override
     @Transactional
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillCloseException,
             RepeatKillException, SeckillException {
