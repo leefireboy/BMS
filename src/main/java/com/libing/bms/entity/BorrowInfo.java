@@ -31,6 +31,8 @@ public class BorrowInfo {
 
     private Date createTime;
 
+    private Date modifyTime;
+
     public Long getId() {
         return id;
     }
@@ -95,11 +97,27 @@ public class BorrowInfo {
         this.createTime = createTime;
     }
 
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
     @Override
     public String toString() {
-        return "BorrowInfo [id=" + id + ", userId=" + userId + ", userName=" + userName + ", bookId=" + bookId
-                + ", bookName=" + bookName + ", borrowDate=" + borrowDate + ", returnDate=" + returnDate
-                + ", createTime=" + createTime + "]";
+        return "BorrowInfo{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", borrowDate=" + borrowDate +
+                ", returnDate=" + returnDate +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
+                '}';
     }
 
 }

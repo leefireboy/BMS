@@ -101,6 +101,7 @@ CREATE TABLE borrow_info (
 	borrow_date timestamp NOT NULL COMMENT '借出日期',
 	return_date timestamp NOT NULL COMMENT '归还日期',
 	create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建日期',
+	modify_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
 	PRIMARY KEY (id),
 	UNIQUE KEY idx_book_id_user_id (user_id, book_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT '借阅信息表';
