@@ -17,11 +17,15 @@
     </sql>
 
     <select id="list" resultType="BorrowInfo">
-        select <include refid="columns" /> from borrow_info
+        select
+        <include refid="columns"/>
+        from borrow_info
     </select>
 
     <select id="queryById" resultType="BorrowInfo">
-        select <include refid="columns" /> from borrow_info where id=#{id}
+        select
+        <include refid="columns"/>
+        from borrow_info where id=#{id}
     </select>
 
     <insert id="insert">
@@ -30,7 +34,7 @@
         values
             (#{userId},#{userName},#{bookId},#{bookName},#{borrowDate},#{returnDate})
     </insert>
-    
+
     <delete id="deleteByid">
         delete from borrow_info where id=#{id}
     </delete>
